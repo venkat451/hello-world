@@ -1,6 +1,10 @@
-# Pull base image 
-From tomcat:8-jre8 
+FROM ubuntu:latest
+MAINTAINER venkat451 "venkatkagitha1@gmail.com"
 
-# Maintainer 
-MAINTAINER "valaxytech@gmail.com" 
-COPY ./webapp.war /usr/local/tomcat/webapps
+RUN apt-get update
+RUN apt-get install -y python python-pip wget
+RUN pip install Flask
+
+ADD hello.py /home/hello.py
+
+WORKDIR /home
